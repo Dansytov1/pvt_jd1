@@ -28,5 +28,19 @@ public class Main {
         String s2="s1";
         System.out.println("s1==s2="+(s1==s2));
         System.out.println("s1.equals(s2)="+s1.equals(s2));
+
+        car1.checkService();
+        car1.isServiceNeeded=true;
+        car1.checkService();
+        car1.checkGasTank();
+        car1.gas+=40;
+        car1.checkGasTank();
+        car1.gas-=10;
+        car1.checkGasTank();
+
+
+
+
+
     }
 }
