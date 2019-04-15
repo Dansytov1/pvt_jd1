@@ -36,10 +36,10 @@ public class Car {
     public void speedUp(int speed) {
         this.speed = speed + 10;
         System.out.println(brand + " speed up to " + this.speed);
-        }
+    }
     public void showCharacteristic () {
-            System.out.println(brand + " speed=" + this.speed + ", color=" + this.color + ", price=" + this.price);
-        }
+        System.out.println(brand + " speed=" + this.speed + ", color=" + this.color + ", price=" + this.price);
+    }
     public void fillCar() {
         quantityOfGasoline += 15;
         if (quantityOfGasoline > volumeTank) {
@@ -50,14 +50,14 @@ public class Car {
         }
     }
     public void service (boolean broken) {
-            if (broken == false) {
-                System.out.println("Pleasant journey!!!");
+        if (broken == false) {
+            System.out.println("Pleasant journey!!!");
         }
-            else {
-                System.out.println("You car needs repair!");
-            }
+        else {
+            System.out.println("You car needs repair!");
+        }
 
-        }
-     }
+    }
+}
 
 
