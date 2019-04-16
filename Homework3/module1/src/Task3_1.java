@@ -10,7 +10,7 @@ public class Task3_1 {
             h = (m -min) / 60;
             day = h%24;
             d=(h-day)/24;
-            week=d%24;
+            week=d%7;
             System.out.println(week+" недель, "+day+" дней, "+h+" часов, " + min + " минут, " + sec + " секунд");
 
         }
