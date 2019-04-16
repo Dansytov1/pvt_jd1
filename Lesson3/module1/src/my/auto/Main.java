@@ -38,6 +38,40 @@ public class Main {
         car1.gas-=10;
         car1.checkGasTank();
 
+        int i2=0;
+        i=0;
+
+
+
+
+        //i2=i++;
+        //i2=i;
+        //i=i+1;
+        i2=++i;
+
+
+
+        System.out.println("i="+i);
+        System.out.println("i2="+i2);
+
+        int bi1=0b0010;
+        int bi2=0b1011;
+        System.out.println("bi1 & bi2="+Integer.toBinaryString(bi1&bi2));//битовые операции как правило не используются
+        System.out.println("bi1 | bi2="+Integer.toBinaryString(bi1|bi2));//битовые операции как правило не используются
+        System.out.println("bi1 ^ bi2="+Integer.toBinaryString(bi1^bi2));//битовые операции как правило не используются
+
+
+
+        car1.checkHandBreak();//1
+        car1.isHandBreakOn=true;
+        car1.checkHandBreak();//2
+        car1.isHandBreakOn=!car1.isHandBreakOn;
+        car1.checkHandBreak();//3
+
+
+
+
+
 
 
 
