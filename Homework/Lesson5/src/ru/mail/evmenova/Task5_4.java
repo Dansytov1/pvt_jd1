@@ -1,6 +1,4 @@
 package ru.mail.evmenova;
-
-import java.sql.SQLOutput;
 import java.util.Scanner;
 
 public class Task5_4 {
