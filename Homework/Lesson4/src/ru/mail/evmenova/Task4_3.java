@@ -5,37 +5,34 @@ import java.util.Scanner;
 public class Task4_3 {
     public static void main(String[] args) {
 
-        boolean isNumberForFactoril = false;
-        int i=1;
-        int factorial=1;
-        int n=0;
-
+        int i = 1;
+        int factorial = 1;
         Scanner scanner = new Scanner(System.in);
 
-        do {
-        System.out.println("Enter a number to calculate the factorial n= ");
-        String n1 = scanner.nextLine();
-            try {
-                n = Integer.parseInt(n1);
-                if (n >= 0) {
-                    isNumberForFactoril = true;
-                    break;
-                }
+        int n = readNumberForFactorial(scanner, "Enter a number to calculate the factorial n= ");
 
-            } catch (NumberFormatException e) {
-
-            } finally {
-                if (n == 0) {
-                    isNumberForFactoril = false;
-                }
-            }
-        }while (!isNumberForFactoril);
-        System.out.println("You have entered correct number to calculate the factorial n="+n);
-
-        while (i<=n){
+        while (i <= n) {
             factorial *= i;
             i++;
         }
-        System.out.println("factorial= "+factorial);
+        System.out.println("factorial= " + factorial);
+    }
+
+    private static int readNumberForFactorial(Scanner scanner, String messsage) {
+        int n = 0;
+        do {
+            System.out.println(messsage);
+            String n1 = scanner.nextLine();
+            try {
+                n = Integer.parseInt(n1);
+            } catch (NumberFormatException e) {
+            }
+            if (n <= 0) {
+            System.out.println("ERROR!!! Enter the correct number!!!");
+            } else {
+            return n;
+            }
+        }
+        while (true);
     }
 }

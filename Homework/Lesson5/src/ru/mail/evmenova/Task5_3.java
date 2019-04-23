@@ -4,10 +4,9 @@ import java.util.Scanner;
 
 public class Task5_3 {
     public static void main(String[] args) {
-        boolean enterInt = false;
-        int numberOfDivisors = 0, intNumber=0;
         Scanner scanner = new Scanner(System.in);
-        intNumber = getIntNumber(enterInt, intNumber, scanner);
+        int intNumber = readNumber(scanner,"Enter an Integer = ");
+        int numberOfDivisors = 0;
 
         for (int i = 1; i <= intNumber; i++) {
                 if (intNumber % i == 0) {
@@ -19,26 +18,22 @@ public class Task5_3 {
             } else {
                 System.out.println("Number is not Prime");
             }
-
     }
 
-    private static int getIntNumber(boolean enterInt, int intNumber, Scanner scanner) {
+    private static int readNumber(Scanner scanner, String message) {
+        int intNumber=0;
         do {
-            System.out.println("Enter an Integer = ");
+            System.out.println(message);
             String intNumber1 = scanner.nextLine();
             try {
                 intNumber = Integer.parseInt(intNumber1);
-                if (intNumber>=1){
-                    enterInt=true;
-                }
             } catch (NumberFormatException e) {
-            } finally {
-                if (intNumber==0){
-                    System.out.println("ERROR!!! Enter the correct number!!!");
-                    enterInt=false;
-                }
             }
-        }while(!enterInt);
-        return intNumber;
+            if (intNumber<=0){
+            System.out.println("ERROR!!! Enter the correct number!!!");
+            }else{
+                return intNumber;
+            }
+        }while(true);
     }
 }

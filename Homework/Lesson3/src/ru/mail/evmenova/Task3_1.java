@@ -1,11 +1,13 @@
 package ru.mail.evmenova;
 
+import java.util.Scanner;
+
 public class Task3_1 {
     public static void main(String[] args) {
-        int s = 11840000;
-        int sec;
-        int m;
-        int min, h, day, w, d,hour;
+
+        Scanner scanner = new Scanner(System.in);
+        int s=readNumber(scanner, "Enter the number of seconds s= ");
+        int sec, m, min, h, day, w, d,hour;
 
         sec = s % 60;
 
@@ -22,5 +24,21 @@ public class Task3_1 {
 
         System.out.println(w+" недель, "+day+" дней, "+hour+" часов, " + min + " минут, " + sec + " секунд");
 
+    }
+    private static int readNumber(Scanner scanner, String message){
+        int num=0;
+        do{
+            System.out.println(message);
+            String number1 = scanner.nextLine();
+            try {
+                num = Integer.parseInt(number1);
+            }catch(NumberFormatException e){
+            }
+            if (num<=0){
+                System.out.println("ERROR!!! Enter the correct number!!!");
+            }else{
+                return num;
+            }
+        }while (true);
     }
 }

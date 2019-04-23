@@ -6,12 +6,10 @@ import java.util.Scanner;
 public class Task5_1 {
     public static void main(String[] args) {
 
-        boolean isLengthOfArray=false;
-        int max=0;
-        int n=0;
         Scanner scanner=new Scanner(System.in);
-        n = getN(isLengthOfArray, n, scanner);
+        int n = readN(scanner, "Enter the length of the array n= ");
         int[] intArray1 = new int[n];
+        int max=0;
 
         for (int i = 0; i<intArray1.length; i++){
             intArray1[i]=(int)Math.round(100*Math.random());
@@ -28,24 +26,20 @@ public class Task5_1 {
         System.out.println("The maximum element of the array, max = "+max);
     }
 
-    private static int getN(boolean isLengthOfArray, int n, Scanner scanner) {
+    private static int readN(Scanner scanner, String message) {
+        int n=0;
         do {
-            System.out.println("Enter the length of the array n= ");
+            System.out.println(message);
             String n1 = scanner.nextLine();
             try {
                 n = Integer.parseInt(n1);
-                if (n>=0) {
-                    isLengthOfArray = true;
-                }
             } catch (NumberFormatException e) {
-
-            } finally {
-                if (n == 0) {
-                    System.out.println("ERROR!!! Enter the length of the array again!");
-                    isLengthOfArray=false;
-                }
             }
-        }while(!isLengthOfArray);
-        return n;
+            if (n <= 0) {
+                System.out.println("ERROR!!! Enter the length of the array again!");
+            }else{
+                return n;
+            }
+        }while(true);
     }
 }

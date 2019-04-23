@@ -4,72 +4,10 @@ import java.util.Scanner;
 
 public class Task4_1 {
     public static void main(String[] args) {
-
-        boolean isDateCorrect=false;
-        int day=0;
-        boolean isMonthCorrect=false;
-        int month=0;
-        boolean isYearCorrect=false;
-        int year=0;
-
         Scanner scanner = new Scanner(System.in);
-
-        do {
-            System.out.println("Enter day: ");
-            String day1 = scanner.nextLine();
-            try {
-                day = Integer.parseInt(day1);
-                if (day>0) {
-                    isDateCorrect = true;
-                }
-            } catch (NumberFormatException e) {
-
-            } finally {
-                if (day == 0) {
-                    isDateCorrect = false;
-                }
-            }
-        }while(!isDateCorrect);
-        System.out.println("You have entered correct day: "+day);
-
-
-        do {
-            System.out.println("Enter month: ");
-            String month1 = scanner.nextLine();
-            try {
-                month = Integer.parseInt(month1);
-                if (month<=12&&month>0) {
-                    isMonthCorrect = true;
-                }
-            } catch (NumberFormatException e) {
-
-            } finally {
-                if (month == 0) {
-                    isMonthCorrect = false;
-                }
-            }
-        }while (!isMonthCorrect);
-                    System.out.println("You have entered correct month: "+month);
-
-
-
-        do {
-            System.out.println("Enter year: ");
-            String year1 = scanner.nextLine();
-            try {
-                year = Integer.parseInt(year1);
-                if (year>0) {
-                    isYearCorrect = true;
-                }
-            } catch (NumberFormatException e) {
-
-            } finally {
-                if (year == 0) {
-                    isYearCorrect = false;
-                }
-            }
-        }while(!isYearCorrect);
-                System.out.println("You have entered correct year: "+year);
+        int day=readInteger(scanner,"Enter day: ");
+        int month=readIntegerMonth(scanner,"Enter month: ");
+        int year=readInteger(scanner, "Enter year: ");
 
         switch (month) {
 
@@ -85,12 +23,10 @@ public class Task4_1 {
                     month = 1;
                     day = 1;
                     System.out.println("New date: " + day + "." + month + "." + year);
-                    if (day == 31) {
+                }else if (day == 31) {
                         month = month + 1;
                         day = 1;
                         System.out.println("New date: " + day + "." + month + "." + year);
-                    }
-
                 } else {
                     day = day + 1;
                     System.out.println("New date: " + day + "." + month + "." + year);
@@ -112,20 +48,50 @@ public class Task4_1 {
                 break;
 
             case 2:
-                if (day == 29&&year%4==0&&year%100!=0||day==29&&year%400==0) {
+                if (day == 29&&year%4==0&&year%100!=0||day==29&&year%400==0||day==28) {
                     month = month + 1;
                     day = 1;
                     System.out.println("New date: " + day + "." + month + "." + year);
-                }else if(day==28){
-                    month = month + 1;
-                    day = 1;
                 } else {
                     day = day + 1;
                     System.out.println("New date: " + day + "." + month + "." + year);
                 }
                   break;
-
         }
     }
-
+    private static int readInteger(Scanner scanner, String message){
+        int a=0;
+        do {
+            System.out.println(message);
+            String a1 = scanner.nextLine();
+            try {
+                a = Integer.parseInt(a1);
+            } catch (NumberFormatException e) {
+            }
+            if (a <= 0) {
+                System.out.println("ERROR!!! Enter the correct number!!!");
+            } else {
+                return a;
+            }
+        }while(true);
+    }
+    private static int readIntegerMonth(Scanner scanner, String message){
+        int a=0;
+        do {
+            System.out.println(message);
+            String a1 = scanner.nextLine();
+            try {
+                a = Integer.parseInt(a1);
+            } catch (NumberFormatException e) {
+            }
+            if (a <= 0||a>12) {
+                System.out.println("ERROR!!! Enter the correct number!!!");
+            } else {
+                return a;
+            }
+        }while(true);
 }
+}
+// по поводу применения второго метода для месяца не очень уверенна,
+//т.к. отличие всего лишь в одну одно усолвие и возможно это можно
+// обыграть в одом методе

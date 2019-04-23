@@ -5,24 +5,25 @@ import java.util.Scanner;
 
 public class Task5_5 {
     public static void main(String[] args) {
-        boolean isLengthOfArray = false;
-        int max = 0, min = 0, sum = 0;
-        int n = 0;
-        Scanner scanner = new Scanner(System.in);
-        n = getN(isLengthOfArray, n, scanner);
 
+        int max = 0, min = 0, sum = 0;
+        Scanner scanner = new Scanner(System.in);
+        int n = readNumber(scanner, "Enter the length of the array n= ");
         int[] intArray1 = new int[n];
+
         for (int i = 0; i < intArray1.length; i++) {
             intArray1[i] = (int) Math.round(100 * Math.random());
         }
+
         for (int i = 0; i < intArray1.length; i++) {
-            if (intArray1[i] > intArray1[max]) {
+            if (intArray1[i] >= intArray1[max]) {
                 max = i;
             }
-            if (intArray1[i]<intArray1[min]) {
+            if (intArray1[i]<=intArray1[min]) {
                 min = i;
             }
         }
+        
         if (min < max) {
             for (int i = min + 1; i < max; i++) {
                 sum += intArray1[i];
@@ -38,24 +39,21 @@ public class Task5_5 {
             System.out.println("Sum of elements between the maximum and minimum values of the array = " + sum);
     }
 
-    private static int getN(boolean isLengthOfArray, int n, Scanner scanner) {
+    private static int readNumber(Scanner scanner, String message) {
+        int n=0;
         do {
-            System.out.println("Enter the length of the array n= ");
+            System.out.println(message);
             String n1 = scanner.nextLine();
             try {
                 n = Integer.parseInt(n1);
-                if (n>=0) {
-                    isLengthOfArray = true;
-                }
-            } catch (NumberFormatException e) {
+            }catch (NumberFormatException e) {
 
-            } finally {
-                if (n == 0) {
-                    System.out.println("ERROR!!! Enter the length of the array again!");
-                    isLengthOfArray=false;
-                }
             }
-        }while(!isLengthOfArray);
-        return n;
+            if (n <= 0) {
+                System.out.println("ERROR!!! Enter the length of the array again!");
+             }else{
+                return n;
+            }
+        }while(true);
     }
 }
