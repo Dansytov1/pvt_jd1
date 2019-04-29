@@ -2,7 +2,7 @@ package ru.mail.evmenova;
 
 import java.util.Scanner;
 
-public class task18 {
+public class Task18 {
 
     public static void main(String[] args) {
         Scanner scanner=new Scanner(System.in);
